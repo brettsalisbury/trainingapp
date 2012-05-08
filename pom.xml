@@ -2,14 +2,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>au.com.some.dodgy.company</groupId>
-	<artifactId>trainingapp</artifactId>
+	<artifactId>dodgyapp</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>trainingapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<build>
-		<finalName>trainingapp</finalName>
+		<finalName>dodgyapp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
@@ -17,7 +17,7 @@
 				<configuration>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<webApp>
-						<contextPath>/test</contextPath>
+						<contextPath>/dodgyapp</contextPath>
 					</webApp>
 				</configuration>
 			</plugin>

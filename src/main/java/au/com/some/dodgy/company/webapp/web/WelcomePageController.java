@@ -5,12 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/welcomepage.htm")
+@RequestMapping("/welcomePage")
 @Scope("request")
 public class WelcomePageController {
 
 	protected String onInitialPageLoad() {
-		return "helloWorld";
+		return "welcomePage";
 	}
 
 }
