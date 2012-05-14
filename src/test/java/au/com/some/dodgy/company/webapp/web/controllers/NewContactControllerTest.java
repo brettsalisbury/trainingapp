@@ -52,4 +52,17 @@ public class NewContactControllerTest {
 		// Then
 		assertModelAttributeValue(newContactModelAndView, expectedModelAttributeName, expectedModelObject);
 	}
+	
+	@Test
+	public void shouldRedirectToWelcomePageOnValidAddContactRequest()
+	{
+		// Given
+		String expectedViewName = "redirect:welcomePage";
+		
+		// When
+		String actualViewName = this.newContactController.onNewContact();
+		
+		// Then
+		assertThat(actualViewName, is(equalTo(expectedViewName)));
+	}
 }

@@ -14,7 +14,7 @@
 		<h1>Add a new user</h1>
 		<hr />
 		<div class="span-22 last">
-			<form:form action="addUser" commandName="newContactFormModel">
+			<form:form commandName="newContactFormModel">
 				<fieldset>
 					<table>
 						<tr>
