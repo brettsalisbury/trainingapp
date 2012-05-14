@@ -13,6 +13,8 @@ import org.junit.Test;
 import org.springframework.test.web.ModelAndViewAssert;
 import org.springframework.web.servlet.ModelAndView;
 
+import au.com.some.dodgy.company.webapp.web.formobjects.NewContactFormModel;
+
 
 public class NewContactControllerTest {
 	
@@ -42,7 +44,7 @@ public class NewContactControllerTest {
 	{
 		// Given
 		String expectedModelAttributeName = "newContactFormModel";
-		String expectedModelObject = new String();
+		NewContactFormModel expectedModelObject = new NewContactFormModel();
 		
 		// When
 		ModelAndView newContactModelAndView = this.newContactController.onPageLoad();
