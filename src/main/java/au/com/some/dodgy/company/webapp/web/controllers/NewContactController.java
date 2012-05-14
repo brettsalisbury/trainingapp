@@ -3,15 +3,19 @@ package au.com.some.dodgy.company.webapp.web.controllers;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/newContact")
 @Scope("request")
 public class NewContactController {
 
-	public String onPageLoad() {
-		return "newContact";
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView onPageLoad() {
+		ModelAndView pageLoadModelAndView = new ModelAndView("newContact");
+		pageLoadModelAndView.addObject("newContactFormModel", new String());
+		return pageLoadModelAndView;
 	}
 
 	

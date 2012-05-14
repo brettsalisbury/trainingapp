@@ -3,10 +3,15 @@ package au.com.some.dodgy.company.webapp.web.controllers;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.springframework.test.web.ModelAndViewAssert.assertModelAttributeAvailable;
+import static org.springframework.test.web.ModelAndViewAssert.assertModelAttributeValue;
+import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.web.ModelAndViewAssert;
+import org.springframework.web.servlet.ModelAndView;
 
 
 public class NewContactControllerTest {
@@ -26,9 +31,23 @@ public class NewContactControllerTest {
 		String expectedViewName = "newContact";
 		
 		// When
-		String actualViewName = this.newContactController.onPageLoad();
+		ModelAndView actualModelAndView = this.newContactController.onPageLoad();
 		
 		// Then
-		assertThat(actualViewName, is(equalTo(expectedViewName)));
+		assertViewName(actualModelAndView, expectedViewName);
+	}
+	
+	@Test
+	public void shouldReturnEmptyNewContractFormModelOnPageLoad()
+	{
+		// Given
+		String expectedModelAttributeName = "newContactFormModel";
+		String expectedModelObject = new String();
+		
+		// When
+		ModelAndView newContactModelAndView = this.newContactController.onPageLoad();
+		
+		// Then
+		assertModelAttributeValue(newContactModelAndView, expectedModelAttributeName, expectedModelObject);
 	}
 }

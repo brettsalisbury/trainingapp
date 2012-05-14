@@ -11,7 +11,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <context:component-scan base-package="au.com.some.dodgy.company.webapp.web" />
+	<!-- Scan the package described to find annotated controllers -->
+    <context:component-scan base-package="au.com.some.dodgy.company.webapp.web.controllers" />
 
     <!-- JSR-303 support will be detected on classpath and enabled automatically -->
     <mvc:annotation-driven/>
