@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Scope("request")
 public class WelcomePageController {
 
-	protected String onInitialPageLoad() {
+	public String onInitialPageLoad() {
 		return "welcomePage";
 	}
 
