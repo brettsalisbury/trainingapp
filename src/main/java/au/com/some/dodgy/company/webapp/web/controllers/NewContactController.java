@@ -21,7 +21,7 @@ public class NewContactController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String onNewContact(NewContactFormModel newContact) {
+	public String onNewContact() {
 		return "redirect:welcomePage";
 	}	
 }
