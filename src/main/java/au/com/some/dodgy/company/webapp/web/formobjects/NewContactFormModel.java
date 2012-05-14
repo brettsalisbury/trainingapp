@@ -1,8 +1,19 @@
 package au.com.some.dodgy.company.webapp.web.formobjects;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
 public class NewContactFormModel {
 
+	@NotNull
+	@Length(min = 1, max = 30)
 	private String name;
+	
+	@Min(1)
+	@Max(119)
 	private int age;
 	
 	public int getAge() {
