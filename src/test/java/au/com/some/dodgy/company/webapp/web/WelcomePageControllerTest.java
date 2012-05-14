@@ -6,6 +6,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import au.com.some.dodgy.company.webapp.web.controllers.WelcomePageController;
+
 public class WelcomePageControllerTest extends WelcomePageController {
 
 	@Test
