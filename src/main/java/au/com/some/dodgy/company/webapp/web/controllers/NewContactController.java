@@ -2,6 +2,7 @@ package au.com.some.dodgy.company.webapp.web.controllers;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import au.com.some.dodgy.company.domain.TrainingSiteDomainObject;
 import au.com.some.dodgy.company.webapp.web.formobjects.NewContactFormModel;
 
 @Controller
@@ -16,6 +18,14 @@ import au.com.some.dodgy.company.webapp.web.formobjects.NewContactFormModel;
 @Scope("request")
 public class NewContactController {
 
+	private final TrainingSiteDomainObject trainingSiteDomainObject;
+
+	@Autowired
+	public NewContactController(TrainingSiteDomainObject trainingSiteDomainObject)
+	{
+		this.trainingSiteDomainObject = trainingSiteDomainObject;
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView onPageLoad() {
 		ModelAndView pageLoadModelAndView = new ModelAndView("newContact");
@@ -28,6 +38,13 @@ public class NewContactController {
 		if (result.hasErrors()) {
 			return "newContact";
 		}
+		
+		addNewContactToTrainingSiteDomainObject(newContact);
 		return "redirect:welcomePage";
+	}
+
+	private void addNewContactToTrainingSiteDomainObject(
+			NewContactFormModel newContact) {
+		this.trainingSiteDomainObject.addUser(new String());
 	}	
 }

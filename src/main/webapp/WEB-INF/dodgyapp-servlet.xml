@@ -13,6 +13,9 @@
 	<!-- Scan the package described to find annotated controllers -->
 	<context:component-scan
 		base-package="au.com.some.dodgy.company.webapp.web.controllers" />
+		
+	<!-- Scan the package described to find domain objects that sit in the session store -->
+	<context:component-scan base-package="au.com.some.dodgy.company.domain"/>
 
 	<!-- JSR-303 support will be detected on classpath and enabled automatically -->
 	<mvc:annotation-driven />

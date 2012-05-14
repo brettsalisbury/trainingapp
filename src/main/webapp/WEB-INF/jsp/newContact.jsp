@@ -20,16 +20,18 @@
 						<tr>
 							<td><label for="name">Name:</label></td>
 							<td><form:input path="name" /></td>
+							<td><form:errors path="name"/></td>
 						</tr>
 						<tr>
 							<td><label for="age">Age:</label></td>
 							<td><form:input path="age" /></td>
+							<td><form:errors path="age"/></td>
 						</tr>
 						<tr>
 							<td><input type="submit" value="Add User" /></td>
 						</tr>
 					</table>
-				</fieldsert>
+				</fieldset>
 			</form:form>
 		</div>
 	</div>
