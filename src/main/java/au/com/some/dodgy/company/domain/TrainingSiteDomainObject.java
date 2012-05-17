@@ -16,19 +16,21 @@ public class TrainingSiteDomainObject implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -8018580498328285334L;
-	private List<String> users;
+	private List<User> users;
 
 	public TrainingSiteDomainObject()
 	{
-		this.users = new ArrayList<String>();
+		this.users = new ArrayList<User>();
 	}
 	
-	public Collection<String> getUsers() {
+	public Collection<User> getUsers() {
 		return this.users;
 	}
 
-	public void addUser(String string) {
-		this.users.add(string);
+	public void addUser(User user) {
+		this.users.add(user);
 	}
+	
+	
 
 }

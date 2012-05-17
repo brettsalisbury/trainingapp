@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import au.com.some.dodgy.company.domain.TrainingSiteDomainObject;
+import au.com.some.dodgy.company.webapp.web.formmappers.NewContactFormToDomainMapper;
 import au.com.some.dodgy.company.webapp.web.formobjects.NewContactFormModel;
 
 @Controller
@@ -19,11 +20,13 @@ import au.com.some.dodgy.company.webapp.web.formobjects.NewContactFormModel;
 public class NewContactController {
 
 	private final TrainingSiteDomainObject trainingSiteDomainObject;
+	private final NewContactFormToDomainMapper newContactFormToDomainMapper;
 
 	@Autowired
-	public NewContactController(TrainingSiteDomainObject trainingSiteDomainObject)
+	public NewContactController(TrainingSiteDomainObject trainingSiteDomainObject, NewContactFormToDomainMapper newContactFormToDomainMapper)
 	{
 		this.trainingSiteDomainObject = trainingSiteDomainObject;
+		this.newContactFormToDomainMapper = newContactFormToDomainMapper;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
@@ -45,6 +48,6 @@ public class NewContactController {
 
 	private void addNewContactToTrainingSiteDomainObject(
 			NewContactFormModel newContact) {
-		this.trainingSiteDomainObject.addUser(new String());
+		this.trainingSiteDomainObject.addUser(newContactFormToDomainMapper.mapFormToDomain(newContact));
 	}	
 }

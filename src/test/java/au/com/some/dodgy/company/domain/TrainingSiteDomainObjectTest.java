@@ -23,7 +23,7 @@ public class TrainingSiteDomainObjectTest {
 	public void shouldAddNewUserToListOfUsers()
 	{
 		// given
-		String user = new String();
+		User user = new User();
 		assertThat(this.trainingSiteDomainObject.getUsers().size(), is(equalTo(0)));
 		
 		// when
