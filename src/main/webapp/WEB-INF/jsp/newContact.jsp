@@ -19,13 +19,13 @@
 					<table>
 						<tr>
 							<td><label for="name">Name:</label></td>
-							<td><form:input path="name" /></td>
-							<td><form:errors path="name"/></td>
+							<td><form:input path="name" id="name" /></td>
+							<td><form:errors path="name" id="nameErrors"/></td>
 						</tr>
 						<tr>
 							<td><label for="age">Age:</label></td>
-							<td><form:input path="age" /></td>
-							<td><form:errors path="age"/></td>
+							<td><form:input path="age" id="age" /></td>
+							<td><form:errors path="age" id="ageErrors"/></td>
 						</tr>
 						<tr>
 							<td><input type="submit" value="Add User" /></td>

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<title>Training app | Welcome</title>
+<title>Training app | Welcome Page</title>
 
 <!-- Framework CSS -->
 <link rel="stylesheet" href="resources/css/blueprint/screen.css"
@@ -29,13 +29,13 @@
                 <table id="currentUsers">
                     <c:forEach var="userName" items="${welcomePageModel.userNames}">
                     <tr>
-                        <td>${userName}</td>
+                        <td id="userName">${userName}</td>
                     </tr>
                     </c:forEach>
                 </table>
 		</div>
 		<div class="span-12 colborder">
-			Click <a href="newContact">here</a> to add a new contact.
+			Click <a href="newContact" id="newContactNav">here</a> to add a new contact.
 		</div>
 		<div class="span-5 last">Right sidebar</div>
 	</div>
