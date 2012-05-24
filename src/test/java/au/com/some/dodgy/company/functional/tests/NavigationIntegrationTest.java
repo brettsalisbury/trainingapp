@@ -16,7 +16,7 @@ import au.com.some.dodgy.company.functional.common.Page;
 import au.com.some.dodgy.company.functional.pages.NewContactPage;
 import au.com.some.dodgy.company.functional.pages.WelcomePage;
 
-public class NavigationTest extends ChromeWebDriverTestBase {
+public class NavigationIntegrationTest extends ChromeWebDriverTestBase {
 
 	private Page currentPage = null;
 	
@@ -27,7 +27,6 @@ public class NavigationTest extends ChromeWebDriverTestBase {
 	}
 	
 	@Test
-	@Ignore //TODO: Remove through starting jetty as part of the build
 	public void shouldNavigateThroughPagesCorrectly()
 	{
 		navigateToWelcomePage(); 
