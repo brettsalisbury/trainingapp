@@ -1,4 +1,5 @@
-/.settings
+﻿/.settings
 /.classpath
 /.project
 /target
+chromedriver.log

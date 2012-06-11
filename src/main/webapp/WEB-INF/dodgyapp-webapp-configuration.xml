@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+    <!--Support convention over configuration by mapping xxxController to /xxx -->
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+        <property name="caseSensitive" value="true"/>
+    </bean>
+
+    <bean id="newContactFormToDomainMapper"
+          class="au.com.some.dodgy.company.webapp.web.formmappers.NewContactFormToDomainMapper" scope="singleton"/>
+
+    <bean id="welcomePageModelToDomainMapper"
+          class="au.com.some.dodgy.company.webapp.web.formmappers.WelcomePageModelToDomainMapper" scope="singleton"/>
+
+
+    <bean id="newContactController" class="au.com.some.dodgy.company.webapp.web.controllers.NewContactController"
+          scope="request">
+        <constructor-arg ref="trainingSiteDomainObject"/>
+        <constructor-arg ref="newContactFormToDomainMapper"/>
+        <property name="formView" value="newContact"/>
+        <property name="successView" value="redirect:welcomePage"/>
+    </bean>
+
+    <bean id="welcomePageController" class="au.com.some.dodgy.company.webapp.web.controllers.WelcomePageController"
+          scope="request">
+        <constructor-arg ref="trainingSiteDomainObject"/>
+        <constructor-arg ref="welcomePageModelToDomainMapper"/>
+    </bean>
+</beans>

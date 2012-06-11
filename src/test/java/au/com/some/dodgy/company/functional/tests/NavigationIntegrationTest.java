@@ -1,20 +1,16 @@
 package au.com.some.dodgy.company.functional.tests;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
-
-import static org.hamcrest.core.IsEqual.equalTo;
-
-import static org.hamcrest.core.Is.is;
-
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
 import au.com.some.dodgy.company.functional.common.ChromeWebDriverTestBase;
 import au.com.some.dodgy.company.functional.common.Page;
 import au.com.some.dodgy.company.functional.pages.NewContactPage;
 import au.com.some.dodgy.company.functional.pages.WelcomePage;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class NavigationIntegrationTest extends ChromeWebDriverTestBase {
 
@@ -23,7 +19,7 @@ public class NavigationIntegrationTest extends ChromeWebDriverTestBase {
 	@Before
 	public void setUp()
 	{
-		this.getDriver().get("http://localhost:8080/dodgyapp/");
+		this.getDriver().get("http://localhost:8080/dodgyapp/welcomePage");
 	}
 	
 	@Test

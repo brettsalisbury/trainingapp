@@ -1,31 +1,29 @@
 package au.com.some.dodgy.company.webapp.web.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
 import au.com.some.dodgy.company.domain.TrainingSiteDomainObject;
 import au.com.some.dodgy.company.webapp.web.formmappers.WelcomePageModelToDomainMapper;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.AbstractController;
 
-@Controller
-@RequestMapping("/welcomePage")
-@Scope("request")
-public class WelcomePageController {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class WelcomePageController extends AbstractController{
 
 	private final TrainingSiteDomainObject trainingSiteDomainObject;
 	private final WelcomePageModelToDomainMapper welcomePageModelToDomainMapper;
 
-	@Autowired
+    @Override
+    protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return onPageLoad();
+    }
+
 	public WelcomePageController(TrainingSiteDomainObject trainingSiteDomainObject, WelcomePageModelToDomainMapper welcomePageModelToDomainMapper)
 	{
 		this.trainingSiteDomainObject = trainingSiteDomainObject;
 		this.welcomePageModelToDomainMapper = welcomePageModelToDomainMapper;
 	}
-	
-	@RequestMapping(method = RequestMethod.GET)
+
 	public ModelAndView onPageLoad() {
 		ModelAndView pageLoadModelAndView = new ModelAndView("welcomePage");
 		pageLoadModelAndView.addObject("welcomePageModel", this.welcomePageModelToDomainMapper.mapDomainToForm(this.trainingSiteDomainObject));
