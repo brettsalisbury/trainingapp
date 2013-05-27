@@ -4,7 +4,7 @@
 	<groupId>au.com.some.dodgy.company</groupId>
 	<artifactId>dodgyapp</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>trainingapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
